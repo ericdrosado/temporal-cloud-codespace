@@ -47,3 +47,12 @@ npm install -g --silent @github/copilot
 
 temporal --version
 temporal cloud --help >/dev/null && echo "temporal cloud plugin: ok"
+
+# The skill's preflight / detect-tools / install-cli steps are skipped in this Codespace
+# (see AGENTS.md), so check what they would have checked here, once, at build time.
+for bin in git jq python3 go node npm java mvn dotnet ruby bundle; do
+  command -v "$bin" >/dev/null || { echo "missing tool: $bin" >&2; exit 1; }
+done
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/temporalio"
+mkdir -p "$config_dir" && touch "$config_dir/.probe" && rm -f "$config_dir/.probe"
+echo "skill prerequisites: ok"

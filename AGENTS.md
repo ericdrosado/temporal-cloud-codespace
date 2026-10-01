@@ -4,11 +4,18 @@ This repo is a GitHub Codespace for running the `temporal-cloud-setup` skill
 (`.agents/skills/temporal-cloud-setup`). Follow that skill as written. These notes cover
 only what's different about running it in a Codespace (Linux, in the cloud):
 
-- **The Temporal CLI and its `temporal cloud` plugin are preinstalled.** The skill's
-  install step will report the CLI as present and skip the Homebrew update. That's
-  expected: carry on with the installed CLI.
-- **`brew-missing` from preflight is expected here.** Homebrew isn't used in this
-  Codespace; don't ask the user to install it.
+- **Skip the Preflight, Detect tools, and Install CLI steps (Phase 1, steps 2–4).** This
+  Codespace was built with everything they check: the Temporal CLI and `temporal cloud`
+  plugin, git, jq, every SDK's toolchain, and a writable config directory. The build
+  verified all of it. This overrides the skill's "every step is required" rule for
+  these three steps only. Don't render their gates and don't run their subcommands.
+  - After the user picks an SDK, go straight to **Sign in**.
+  - In the Phase 1 checklist, show those steps as done:
+    `- [x] Tools detected — preinstalled in this Codespace` and
+    `- [x] CLI installed — preinstalled in this Codespace`.
+  - Use the default package manager for the SDK (Python: pip, TypeScript: npm) and
+    don't ask which manager to use.
+  - Every other step runs as the skill describes.
 - **Sign-in in the browser version of Codespaces:** after the user signs in, their
   browser is redirected to `http://127.0.0.1:<port>/callback`, which can't reach this
   Codespace, so the page fails to load. When you present the sign-in go-ahead, add this
