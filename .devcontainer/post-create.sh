@@ -41,7 +41,8 @@ fi
 
 sudo install -m 0755 bin/finish-login /usr/local/bin/finish-login
 
-# Optional bring-your-own agent: Codex CLI (Claude Code comes from the devcontainer feature).
+# Optional bring-your-own agents: Claude Code and Codex CLI.
+npm install -g --silent @anthropic-ai/claude-code || echo "Claude Code install failed; skipping (optional)." >&2
 npm install -g --silent @openai/codex || echo "Codex CLI install failed; skipping (optional)." >&2
 
 temporal --version
