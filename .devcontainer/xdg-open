@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Minimal xdg-open for Codespaces: hand the URL to VS Code's $BROWSER helper, which
+# opens it in a browser tab on the user's computer. Falls back to printing the URL.
+if [ -n "${BROWSER:-}" ] && [ -x "${BROWSER%% *}" ]; then
+  exec "$BROWSER" "$@"
+fi
+echo "Open this URL in your browser: $1" >&2

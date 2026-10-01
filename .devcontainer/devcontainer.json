@@ -1,0 +1,21 @@
+{
+  "name": "Temporal Cloud setup",
+  // GitHub's default Codespaces image: Python, Node, Go, Java + Maven, .NET, Ruby, git, jq.
+  // Covers all six SDKs the skill supports, and starts fast because Codespaces caches it.
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1": {}
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": ["GitHub.copilot-chat"],
+      "settings": {
+        "chat.useAgentSkills": true
+      }
+    }
+  },
+  "hostRequirements": {
+    "cpus": 2
+  }
+}

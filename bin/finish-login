@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# finish-login '<url>'
+#
+# `temporal cloud login` waits for the browser to redirect to
+# http://127.0.0.1:<port>/callback inside this Codespace. In the browser version of
+# Codespaces that redirect can't reach the container, so the page fails to load.
+# Copy the failed page's full address and pass it here: this delivers it to the
+# waiting login from inside the Codespace.
+set -euo pipefail
+
+url="${1:-}"
+case "$url" in
+  http://127.0.0.1:*/callback\?*|http://localhost:*/callback\?*) ;;
+  *)
+    echo "usage: finish-login 'http://127.0.0.1:<port>/callback?code=...'" >&2
+    echo "Copy the full address of the page that failed to load after you signed in." >&2
+    exit 2
+    ;;
+esac
+
+# Codespaces' localhost is IPv4; normalize so the request reaches the login listener.
+url="${url/http:\/\/localhost:/http://127.0.0.1:}"
+
+if curl -fsS -o /dev/null "$url"; then
+  echo "Sign-in delivered. Return to your agent; the login step should finish on its own."
+else
+  echo "Couldn't reach the waiting login. It may have timed out: ask your agent to run the sign-in step again." >&2
+  exit 1
+fi
