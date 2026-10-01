@@ -21,7 +21,7 @@ only what's different about running it in a Codespace (Linux, in the cloud):
   Codespace, so the page fails to load. When you present the sign-in go-ahead, add this
   line under the gate:
 
-  > Using Codespaces in a browser tab? If the page fails to load after you sign in, copy its full address, open a new terminal, and run `finish-login '<address>'`.
+  > Using Codespaces in a browser tab? If the page fails to load after you sign in, copy its full address, open a new terminal, run `finish-login`, and paste the address when it asks.
 
   The user should never paste that address into the chat.
 - **Clone the sample into the workspace root** (the skill's default path). `.gitignore`

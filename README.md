@@ -49,10 +49,10 @@ Run the skill on your own computer instead: install the Temporal plugin for your
 If you're using Codespaces in a browser tab, the page you land on after signing in to Temporal Cloud may fail to load. That's expected. Copy that page's full address, open a new terminal in the Codespace, and run:
 
 ```bash
-finish-login '<paste the address here>'
+finish-login
 ```
 
-The sign-in then finishes on its own. Using the VS Code desktop app instead? You won't need this step.
+Paste the address when it asks, then press Enter. The sign-in then finishes on its own. Using the VS Code desktop app instead? You won't need this step.
 
 ## When you're done
 
