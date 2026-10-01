@@ -41,9 +41,17 @@ fi
 
 sudo install -m 0755 bin/finish-login /usr/local/bin/finish-login
 
-# Optional bring-your-own agents: Claude Code and Codex CLI.
-npm install -g --silent @anthropic-ai/claude-code || echo "Claude Code install failed; skipping (optional)." >&2
-npm install -g --silent @openai/codex || echo "Codex CLI install failed; skipping (optional)." >&2
+# Agents the skill supports: Claude Code, Codex CLI, and Cursor CLI (`agent`).
+# Each is optional; a failed install shouldn't block the others.
+npm install -g --silent @anthropic-ai/claude-code || echo "Claude Code install failed; skipping." >&2
+npm install -g --silent @openai/codex || echo "Codex CLI install failed; skipping." >&2
+curl -fsS https://cursor.com/install | bash || echo "Cursor CLI install failed; skipping." >&2
+
+# The Cursor installer puts `agent` in ~/.local/bin; make sure new shells can find it.
+for rc in ~/.bashrc ~/.zshrc; do
+  [ -f "$rc" ] || continue
+  grep -q 'HOME/.local/bin' "$rc" || echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$rc"
+done
 
 temporal --version
 temporal cloud --help >/dev/null && echo "temporal cloud plugin: ok"
