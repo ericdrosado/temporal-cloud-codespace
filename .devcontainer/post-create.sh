@@ -41,5 +41,9 @@ fi
 
 sudo install -m 0755 bin/finish-login /usr/local/bin/finish-login
 
+# Copilot CLI: the agent that runs the skill. Signs in with the user's GitHub account
+# and is included with Copilot Free.
+npm install -g --silent @github/copilot
+
 temporal --version
 temporal cloud --help >/dev/null && echo "temporal cloud plugin: ok"
