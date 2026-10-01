@@ -4,7 +4,7 @@
   // Covers all six SDKs the skill supports, and starts fast because Codespaces caches it.
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   // No devcontainer "features": any feature forces a rebuild of this very large image,
-  // which runs out of disk on the free 2-core machine. Agent CLIs install in post-create.
+  // which runs out of disk on the free 2-core machine. Tools install in post-create.
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
     "vscode": {

@@ -13,22 +13,21 @@ An AI agent runs the setup for you, entirely inside the Codespace. It signs you 
 - A GitHub account. A free account works: Codespaces includes free monthly usage.
 - A Temporal Cloud account. [Sign up here](https://temporal.io/get-cloud) if you don't have one.
 
-## Run it with GitHub Copilot (free)
+## Run it
 
 1. Click **Open in GitHub Codespaces** above, then **Create codespace**. The first start takes a few minutes.
-2. Open Copilot Chat and switch it to **Agent** mode.
+2. Open Copilot Chat and switch it to **Agent** mode. If Copilot asks, turn on Copilot Free: it's included with your GitHub account.
 3. Type `/temporal-cloud-setup` and follow along.
 
-Copilot Free includes a limited number of agent requests each month. If you run out partway through, switch to your own agent (below).
+Copilot Free includes a limited number of chat messages each month. One setup run uses about 15.
 
-## Run it with your own agent
+## Already use Claude Code, Cursor, or Codex?
 
-Claude Code and the Codex CLI are preinstalled. Open a terminal in the Codespace and sign in with your own account:
+Run the skill on your own computer instead: install the Temporal plugin for your agent.
 
-| Agent | Start it | Then type |
-|---|---|---|
-| Claude Code | `claude` | `/temporal-cloud-setup` |
-| Codex | `codex` | `$temporal-cloud-setup` |
+- **Claude Code:** [temporalio/claude-temporal-plugin](https://github.com/temporalio/claude-temporal-plugin)
+- **Cursor:** [temporalio/cursor-temporal-plugin](https://github.com/temporalio/cursor-temporal-plugin)
+- **Codex:** [temporalio/codex-temporal-plugin](https://github.com/temporalio/codex-temporal-plugin)
 
 ## Signing in from a browser tab
 
