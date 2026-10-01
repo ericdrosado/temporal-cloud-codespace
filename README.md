@@ -13,13 +13,28 @@ An AI agent runs the setup for you, entirely inside the Codespace. It signs you 
 - A GitHub account. A free account works: Codespaces includes free monthly usage.
 - A Temporal Cloud account. [Sign up here](https://temporal.io/get-cloud) if you don't have one.
 
-## Run it
+## Run it with Copilot CLI
+
+The setup runs in **Copilot CLI**, GitHub Copilot in your terminal. It's preinstalled and signs in with your GitHub account.
 
 1. Click **Open in GitHub Codespaces** above, then **Create codespace**. The first start takes a few minutes.
-2. Open Copilot Chat and switch it to **Agent** mode. If Copilot asks, turn on Copilot Free: it's included with your GitHub account.
-3. Type `/temporal-cloud-setup` and follow along.
+2. Open a terminal: **Terminal → New Terminal**.
+3. Start Copilot CLI:
 
-Copilot Free includes a limited number of chat messages each month. One setup run uses about 15.
+   ```bash
+   copilot
+   ```
+
+   The first time, Copilot asks you to trust this folder (choose yes) and may ask you to sign in: type `/login` and follow the prompts. If you don't have Copilot yet, Copilot Free is included with your GitHub account.
+4. Start the setup by typing the skill's slash command:
+
+   ```text
+   /temporal-cloud-setup
+   ```
+
+   Then answer the questions as they come up. To check the skill is available, type `/skills list`.
+
+Copilot Free includes a monthly usage allowance.
 
 ## Already use Claude Code, Cursor, or Codex?
 
